@@ -1,17 +1,37 @@
 // Assignment code here
 var generatePassword = function(){
   console.log("clicked")
-  // input should be validated and at least one character type should be selected
+  // create variables that contain our strings of criteria
+  var upperCase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+  var lowerCase = 'abcdefghijklmnopqrstuvwxyz'
+  var numbers = '0123456789'
+  var symbols = '~!@#$%^&*_+-?'
+  // input should be validated 
+  var valid = false;
+  while(!valid){
       // present the user with a series of prompts for password criteria
       // a. select which criteria to include in the password
       // b.choose a length of at least 8 characters and no more than 128 characters
       // c.confirm whether or not to include lowercase, uppercase, numeric, and/or special characters
-      var passwordLength = parseInt(windom.prompt("What is your desired password length?"))
+      var passwordLength = parseInt(window.prompt("What is your desired password length?"))
       var includeLowerCase = window.confirm("Click OK if you would like lowercase letters in your password")
       var includeUpperCase = window.confirm("Click OK if you would like uppercase letters in your password")
       var includeNumbers = window.confirm("Click OK if you would like numbers in your password")
       var includeSymbols = window.confirm("Click OK if you would like special characters in your password")
 
+      //validate the length of the password
+      if(passwordLength < 8 || passwordLength > 128){
+        window.alert("Your password must be between 8 and 128 characters in length.")
+      }
+      // validate at least one character type should be selected
+      else if (!includeLowerCase && !includeUpperCase && !includeNumbers && !includeSymbols){
+        window.alert("You must select at least one criteria.")
+      }
+      // if all validation is correct then continue to next step
+      else {
+        valid=true
+      }
+  }
   // password is generated that matches the selected criteria
     // a. the password is either displayed in an alert or written to the page
 }
