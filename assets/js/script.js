@@ -1,4 +1,27 @@
 // Assignment code here
+
+// shuffle any give string
+var randomShuffle = function(string){
+  // declare variables
+  var randomIndex, currentIndex, array;
+  // convert string into array
+  array = string.split('');
+  // loop through the array
+  for(var i =0; i <array.length; i++){
+    // create a random number for index position
+    randomIndex = Math.floor(Math.random() * array.length);
+    // swap 
+    currentIndex = array[i]
+    array[i] = array[randomIndex]
+    array[randomIndex] = currentIndex;
+  }
+
+  // turn the array back into a string
+  string = array.join('')
+  return string;
+}
+
+// generate password
 var generatePassword = function(){
   console.log("clicked")
   // create variables that contain our strings of criteria
