@@ -23,7 +23,6 @@ var randomShuffle = function (string) {
 
 // generate password
 var generatePassword = function () {
-  console.log("clicked")
   // create variables that contain our strings of criteria
   var upperCase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
   var lowerCase = 'abcdefghijklmnopqrstuvwxyz'
@@ -74,20 +73,22 @@ var generatePassword = function () {
     password += symbols
   }
 
-  console.log(password)
+  // shuffle the string using the randomShuffle function
   password = randomShuffle(password)
-  console.log(password)
+
   // password is generated that matches the selected criteria
   var randomNum;
   var generatedPassword = ''
   var index = 0
+  // loop through password length
   while (index < passwordLength) {
+    // generate a random number
     randomNum = Math.floor(Math.random() * password.length);
+    // add each random character selected to generatedPassword
     generatedPassword += password[randomNum]
     index++
   }
 
-  console.log(generatedPassword)
   //the password is returned and displayed to the page
   return generatedPassword;
 }
