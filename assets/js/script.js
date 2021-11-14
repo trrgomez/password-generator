@@ -18,7 +18,7 @@ var generatePassword = function(){
       var includeUpperCase = window.confirm("Click OK if you would like uppercase letters in your password")
       var includeNumbers = window.confirm("Click OK if you would like numbers in your password")
       var includeSymbols = window.confirm("Click OK if you would like special characters in your password")
-
+     
       //validate the length of the password
       if(passwordLength < 8 || passwordLength > 128){
         window.alert("Your password must be between 8 and 128 characters in length.")
@@ -32,6 +32,26 @@ var generatePassword = function(){
         valid=true
       }
   }
+
+    // filter out any false confirmations
+    var password = '';
+    if(includeLowerCase){
+      password += lowerCase
+    }
+
+    if(includeUpperCase){
+      password += upperCase
+    }
+
+    if(includeNumbers){
+      password += numbers
+    }
+
+    if(includeSymbols){
+      password += symbols
+    }
+
+    console.log(password)
   // password is generated that matches the selected criteria
     // a. the password is either displayed in an alert or written to the page
 }
